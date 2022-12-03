@@ -15,7 +15,7 @@ const addWordForm = (uid, obj = {}) => {
         <textarea class="form-control" placeholder="Definition" id="definition" style="height: 100px">${obj.definition || ''}</textarea>
       </div>
       
-      <select id="language" class="form-select" aria-label="Default select example">
+      <select id="language" class="form-select" aria-label="Default select example" required>
         <option selected>Language</option>
         <option value="Javascript">Javascript</option>
         <option value="HTML">HTML</option>
