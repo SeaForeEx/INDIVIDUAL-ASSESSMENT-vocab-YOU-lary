@@ -16,7 +16,7 @@ const startApp = (user) => {
   navEvents(user);
 
   getWords(user.uid).then((words) => showWords(words));
-  console.warn(user.uid);
+  // console.warn(user.uid);
 };
 
 export default startApp;

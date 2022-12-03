@@ -75,26 +75,64 @@ const getSingleWord = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// FILTER WORDS
-// const booksOnSale = (uid) => new Promise((resolve, reject) => {
-//   fetch(`${endpoint}/words.json?orderBy="uid"&equalTo="${uid}"`, {
-//     method: 'GET',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//   })
-//     .then((response) => response.json())
-//     .then((data) => {
-//       const onSale = Object.values(data).filter((item) => item.sale);
-//       resolve(onSale);
-//     })
-//     .catch(reject);
-// });
+// FILTER JAVASCRIPT WORDS
+const jsWords = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/words.json?orderBy="uid"&equalTo="${uid}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        resolve(Object.values(data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
+
+// FILTER HTML WORDS
+const htmlWords = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/words.json?orderBy="language"&equalTo="HTML"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const hyperText = Object.values(data).filter((item) => item.language);
+      resolve(hyperText);
+    })
+    .catch(reject);
+});
+
+// FILTER CSS WORDS
+const cssWords = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/words.json?orderBy="language"&equalTo="CSS"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const cascadeStyle = Object.values(data).filter((item) => item.language);
+      resolve(cascadeStyle);
+    })
+    .catch(reject);
+});
 
 export {
   getWords,
   createWord,
   deleteWord,
   getSingleWord,
-  updateWord
+  updateWord,
+  jsWords,
+  htmlWords,
+  cssWords
 };
