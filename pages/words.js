@@ -22,8 +22,8 @@ const showWords = (array) => {
         <h5 class="card-subtitle mb-2 text-muted">${item.definition}</h5>
         <h6 class="card-subtitle mb-2 text-muted">${item.language}</h6>
         <hr>
-        <div class="btn btn-info" id="edit-word-btn--${item.firebaseKey}"><span><div class="fas fa-edit"></div> Edit</span></div>
-        <div class="btn btn-danger" id="delete-word-btn--${item.firebaseKey}"><span><div class ="fas fa-trash-alt"></div> Delete</span></div>
+        <div class="btn btn-info" id="edit-word-btn--${item.firebaseKey}">Edit</div>
+        <div class="btn btn-danger" id="delete-word-btn--${item.firebaseKey}">Delete</div>
       </div>
     </div>
     `;

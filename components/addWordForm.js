@@ -21,7 +21,7 @@ const addWordForm = (uid, obj = {}) => {
         <option value="HTML">HTML</option>
         <option value="CSS">CSS</option>
       </select>
-        <button type="submit" class="btn btn-primary">Submit Book
+        <button type="submit" class="btn btn-primary">Submit Word
         </button>
     </form>`;
 
