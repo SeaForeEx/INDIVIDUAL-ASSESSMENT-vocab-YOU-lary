@@ -86,7 +86,9 @@ const jsWords = (uid) => new Promise((resolve, reject) => {
     .then((response) => response.json())
     .then((data) => {
       if (data) {
-        resolve(Object.values(data));
+        const javaScript = Object.values(data);
+        const filteredData = javaScript.filter((item) => item.language === 'Javascript');
+        resolve(filteredData);
       } else {
         resolve([]);
       }
@@ -95,8 +97,8 @@ const jsWords = (uid) => new Promise((resolve, reject) => {
 });
 
 // FILTER HTML WORDS
-const htmlWords = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/words.json?orderBy="language"&equalTo="HTML"`, {
+const htmlWords = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/words.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -104,15 +106,20 @@ const htmlWords = () => new Promise((resolve, reject) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      const hyperText = Object.values(data).filter((item) => item.language);
-      resolve(hyperText);
+      if (data) {
+        const hyperText = Object.values(data);
+        const filteredData = hyperText.filter((item) => item.language === 'HTML');
+        resolve(filteredData);
+      } else {
+        resolve([]);
+      }
     })
     .catch(reject);
 });
 
 // FILTER CSS WORDS
-const cssWords = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/words.json?orderBy="language"&equalTo="CSS"`, {
+const cssWords = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/words.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -120,8 +127,13 @@ const cssWords = () => new Promise((resolve, reject) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      const cascadeStyle = Object.values(data).filter((item) => item.language);
-      resolve(cascadeStyle);
+      if (data) {
+        const cascadeStyle = Object.values(data);
+        const filteredData = cascadeStyle.filter((item) => item.language === 'CSS');
+        resolve(filteredData);
+      } else {
+        resolve([]);
+      }
     })
     .catch(reject);
 });
