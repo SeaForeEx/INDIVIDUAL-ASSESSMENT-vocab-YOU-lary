@@ -14,15 +14,15 @@ const addWordForm = (uid, obj = {}) => {
       <div class="form-group">
         <label for="definition">Definition</label>
         <textarea class="form-control" placeholder="Definition" id="definition" style="height: 100px">${obj.definition || ''}</textarea>
-      </div>   
-      <select id="language" class="form-select" aria-label="Default select example" required>`;
+      </div>  
+      <label for="language">Language</label> 
+      <select id="language" class="form-select" aria-label="Default select example" required>
+      `;
 
   langArray.forEach((lang) => {
     domString += `
        <option 
-         value="${lang ? 'selected' : ''}>
-           ${lang}
-       </option>`;
+         value="${lang}" ${lang === obj.language ? 'selected' : ''}>${lang}</option>`;
   });
 
   domString += `</select><button type="submit" class="btn btn-primary">Submit Word
