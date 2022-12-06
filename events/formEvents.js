@@ -12,6 +12,7 @@ const formEvents = (user) => {
         definition: document.querySelector('#definition').value,
         language: document.querySelector('#language').value,
         uid: user.uid,
+        dateSub: `${Date.now()}`,
       };
 
       createWord(payload).then(({ name }) => {
@@ -33,6 +34,7 @@ const formEvents = (user) => {
         definition: document.querySelector('#definition').value,
         language: document.querySelector('#language').value,
         firebaseKey,
+        dateSub: `${Date.now()}`,
       };
       updateWord(payload).then(() => {
         getWords(user.uid).then(showWords);
