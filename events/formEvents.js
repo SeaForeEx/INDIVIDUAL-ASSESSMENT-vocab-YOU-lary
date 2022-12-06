@@ -1,5 +1,6 @@
 import { createWord, getWords, updateWord } from '../api/wordData';
 import { showWords } from '../pages/words';
+import timestamp from '../utils/thymestamp';
 
 const formEvents = (user) => {
   document.querySelector('#main-container').addEventListener('submit', (e) => {
@@ -12,7 +13,7 @@ const formEvents = (user) => {
         definition: document.querySelector('#definition').value,
         language: document.querySelector('#language').value,
         uid: user.uid,
-        dateSub: `${Date.now()}`,
+        dateSub: timestamp,
       };
 
       createWord(payload).then(({ name }) => {
