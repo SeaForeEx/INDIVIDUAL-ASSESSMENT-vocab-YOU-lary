@@ -24,6 +24,10 @@ const navBar = () => {
             <li class="nav-item">
               <a class="nav-link" href="#" id="css-words">CSS</a>
             </li>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sms:+12034501312" id="text-ryan">Text Ryan a Word at 2am</a>
+            </li>
           </ul>
           <span class="navbar-text">
             <div id="logout-button"></div>
